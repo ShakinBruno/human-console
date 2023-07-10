@@ -21,7 +21,7 @@ Install required python libraries:
         pip install wikipedia_api==0.5.8
         
 ## Functionalities
-All commands are being processed by pure-Python implementation of tools lex and yacc. Each command can be triggered using voice input, to do that type correct command and say your desired command. Each component of the command must be separated by a space or tabulator and are processed case insensitive. All commands with their corresponding commands are as follows:
+All commands are being processed by pure-Python implementation of tools lex and yacc. Each command can be triggered using voice input, to do that type correct command and say your desired command. Each component of the command must be separated by a space or tabulator and are processed case insensitive. All functionalitites with their corresponding commands are as follows:
 - OPEN APP/APPLICATION NAME - opens app with specified NAME.
 - CLOSE APP/APPLICATION NAME - closes opened app with specified NAME.
 - OPEN DOC/DOCUMENT NAME - opens document with specified NAME (without an extension). Supported extensions are: txt, pdf, doc, docx, ppt, pptx, xls, xlsx. Searched directories are: project directory, C:\Users\username\Documents, C:\Users\username\Downloads.
