@@ -1,33 +1,66 @@
 # Natural Language Processing Class - Project 2: Human Console
-### author: Dominik Mikołajczyk
+### Author: Dominik Mikołajczyk
 
-## The task the of project
-The aim of the project was to write a program that responds to commands written in the console in a natural language chosen by the author, the purpose of which is to:
-- run the program with the given name
-- close the program with the given name
-- open the document with the given name
-- open the specified website in the browser
-- optional: other actions
+## Project Overview
+The Human Console project is a natural language processing application designed to interpret and execute user commands entered via the console or through voice input. The program can perform a variety of tasks, such as opening applications, documents, and websites, playing media, defining words, checking weather conditions, and more.
 
-## Requirements:        
-Install required python libraries:
-    <!-- -->
-    
-        pip install ply==3.11
-        pip install appopener==1.5
-        pip install speechrecognition==3.9.0
-        pip install sumy==0.11.0
-        pip install youtube_search==2.1.2
-        pip install wikipedia_api==0.5.8
-        
-## Functionalities
-All commands are being processed by pure-Python implementation of tools lex and yacc. Each command can be triggered using voice input, to do that type correct command and say your desired command. Each component of the command must be separated by a space or tabulator and are processed case insensitive. All functionalitites with their corresponding commands are as follows:
-- OPEN APP/APPLICATION NAME - opens app with specified NAME.
-- CLOSE APP/APPLICATION NAME - closes opened app with specified NAME.
-- OPEN DOC/DOCUMENT NAME - opens document with specified NAME (without an extension). Supported extensions are: txt, pdf, doc, docx, ppt, pptx, xls, xlsx. Searched directories are: project directory, C:\Users\username\Documents, C:\Users\username\Downloads.
-- OPEN WEBSITE/WEBPAGE NAME - opens website with specified NAME (without a domain) using Google Custom Search engine (you have to include your own API key and CX in code).
-- PLAY SONG/VIDEO NAME - opens youtube.com in your browser and plays the video with the specified NAME.
-- DEFINE WORD NAME - prints in console the summarized definition from wikipedia of word with specified NAME.
-- CHECK WEATHER LOCATION - prints in console basic information about weather at specified LOCATION such as temperature, humidity, pressure and short description (it uses Open Weather Map API so you have to include your own API key in code).
-- EXIT/QUIT - exits the program.
-- VOICE/SPEECH/AUDIO INPUT/RECOGNITION - starts voice recognition and waits for user to say one of commands listed above.
+## Features
+The application supports the following functionalities:
+
+- **Open Applications**: Launches an application specified by the user.
+  - Command: `OPEN APP/APPLICATION NAME`
+
+- **Close Applications**: Closes an open application specified by the user.
+  - Command: `CLOSE APP/APPLICATION NAME`
+
+- **Open Documents**: Opens a document with the specified name (without an extension). Supported extensions include `.txt`, `.pdf`, `.doc`, `.docx`, `.ppt`, `.pptx`, `.xls`, and `.xlsx`. The program searches in the current directory, `C:\Users\username\Documents`, and `C:\Users\username\Downloads`.
+  - Command: `OPEN DOC/DOCUMENT NAME`
+
+- **Open Websites**: Opens a website using Google Custom Search. The user must provide their own API key and CX ID in the `api_keys.py` file.
+  - Command: `OPEN WEBSITE/WEBPAGE NAME`
+
+- **Play Media**: Plays a song or video on YouTube based on the specified name.
+  - Command: `PLAY SONG/VIDEO NAME`
+
+- **Define Words**: Retrieves and displays a summarized definition of a word from Wikipedia.
+  - Command: `DEFINE WORD NAME`
+
+- **Check Weather**: Provides basic weather information for a specified location, including temperature, humidity, pressure, and a brief description. This feature uses the Open Weather Map API, requiring the user to provide their own API key.
+  - Command: `CHECK WEATHER LOCATION`
+
+- **Exit Program**: Exits the application.
+  - Command: `EXIT/QUIT`
+
+- **Voice Recognition**: Initiates voice recognition to listen for and execute commands.
+  - Command: `VOICE/SPEECH/AUDIO INPUT/RECOGNITION`
+
+## Installation
+To set up the project, ensure you have Python installed, and then install the required Python libraries:
+
+```bash
+pip install ply==3.11
+pip install appopener==1.5
+pip install speechrecognition==3.9.0
+pip install sumy==0.11.0
+pip install youtube_search==2.1.2
+pip install wikipedia-api==0.5.8
+```
+
+## Configuration
+Before running the application, you need to configure your API keys in the `api_keys.py` file:
+
+```python:api_keys.py
+GOOGLE_CUSTOM_SEARCH_API_KEY = "YOUR GOOGLE CUSTOM SEARCH API KEY"
+GOOGLE_CUSTOM_SEARCH_CX_ID = "YOUR GOOGLE CUSTOM SEARCH CX ID"
+OPEN_WEATHER_MAP_API_KEY = "YOUR OPEN WEATHER MAP API KEY"
+```
+
+## Usage
+Run the `human_console.py` script to start the application. You can enter commands directly into the console or use voice input to execute commands.
+
+```bash
+python human_console.py
+```
+
+## How It Works
+The application uses the `ply` library for lexical analysis and parsing, allowing it to interpret natural language commands. It integrates several APIs and libraries to perform actions such as opening applications, searching the web, and retrieving weather data. Voice commands are processed using the `speech_recognition` library.
